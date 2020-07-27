@@ -1,14 +1,14 @@
 <?php
     /*
-        PlayersMap v1.0
-        https://www.github.com/PlayersMapAMXX/
+        PlayersMap [SM] v1.0
+        https://www.github.com/PlayersMapSM/
     */
 
-    $DB_Server = "localhost";
-    $DB_Username = "root";
-    $DB_Password = "adi123";
-    $DB_Name = "adi_db";
-    $DB_Port = "3306";
+    $DB_Server = "-";
+    $DB_Username = "-";
+    $DB_Password = "-";
+    $DB_Name = "-";
+    $DB_Port = "-";
 
     $DB = mysqli_connect($DB_Server, $DB_Username, $DB_Password, $DB_Name);
 
