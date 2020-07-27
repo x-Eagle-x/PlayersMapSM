@@ -28,8 +28,6 @@ public void OnPluginStart()
 	if (!SQL_CheckConfig(SQL_CONFIG))
 		SetFailState("Missing SQL config. :(");
 		
-	RegConsoleCmd("sm_code", Say_Code);
-		
 	char szError[256];
 	g_dbPlayers = SQL_Connect(SQL_CONFIG, false, szError, sizeof(szError));
 
@@ -42,12 +40,6 @@ public void OnPluginStart()
 		SQL_GetError(g_dbPlayers, szError, sizeof(szError));
 		SetFailState("Something went wrong ;(. please contact the author! (%s)", szError);
 	}
-}
-
-public Action Say_Code(int iClient, int iArgs)
-{
-	PrintToConsoleAll("code = %s", g_szCountryCodes[iClient]);
-	SaveStats(g_szCountryCodes[iClient]);
 }
 
 public void OnClientConnected(int iClient)
