@@ -1,7 +1,7 @@
 <?php
     /*
         PlayersMap [SM] v1.0
-        https://www.github.com/PlayersMapSM/
+        https://www.github.com/x-Eagle-x/PlayersMapSM/
     */
 
     $DB_Server = "-";
