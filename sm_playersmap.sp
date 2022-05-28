@@ -26,19 +26,19 @@ public void OnPluginStart()
 	g_PlayersCountry = CreateTrie();
 	
 	if (!SQL_CheckConfig(SQL_CONFIG))
-		SetFailState("Missing SQL config. :(");
+		SetFailState("Missing SQL configuration.");
 		
 	char szError[256];
 	g_dbPlayers = SQL_Connect(SQL_CONFIG, false, szError, sizeof(szError));
 
 	if (g_dbPlayers == null)
-		SetFailState("Please check the SQL connection config. (%s)", szError);
+		SetFailState("Please check the SQL connection config, error: %s.", szError);
 		
 	char szInitQuery[] = "CREATE TABLE IF NOT EXISTS players (id varchar(3), value int);";
 	if (!SQL_FastQuery(g_dbPlayers, szInitQuery))
 	{
 		SQL_GetError(g_dbPlayers, szError, sizeof(szError));
-		SetFailState("Something went wrong ;(. please contact the author! (%s)", szError);
+		SetFailState("Something went wrong, error: %s.", szError);
 	}
 }
 
@@ -87,7 +87,7 @@ void SaveStats(char[] szCountryCode, bool bConnect = true)
 
 void OnQueryError(Database DB, any Data, int iQueries, const char[] szError, int iFailIndex, any[] QueryData)
 {
-	SetFailState("Failed to make a successful SQL query :(. (%s)", szError);
+	SetFailState("Failed to make a successful SQL query, error: %s.", szError);
 }
 
 public void OnPluginEnd()
